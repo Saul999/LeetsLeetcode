@@ -16,9 +16,10 @@ class Solution(object):
             head.next = None
             return head
 
-        doubleJump = head
+        doubleJump = head.next.next
         singleJump = head
         lastnode = singleJump
+        singleJump = singleJump.next
         while True:
 
             if doubleJump.next and not doubleJump.next.next:
