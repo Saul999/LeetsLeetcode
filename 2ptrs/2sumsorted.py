@@ -8,8 +8,8 @@ class Solution(object):
         #  1  2  3
         # [2, 3, 4]
 
-        print(len(numbers))
-        print(numbers[1])
+        print("Length of array: " + str(len(numbers)))
+
         """
         for i  in range(len(numbers) -1):
             for j in range(len(numbers) -1):
@@ -22,14 +22,15 @@ class Solution(object):
         print(numbers)
         """
         l, r = 0, (len(numbers) - 1)
-        if len(numbers) - 1 <= 2:
+        if len(numbers) - 1 <= 1:
             return l + 1, r + 1
         while l < r:
+            print("positions")
             print(l)
             print(r)
-            if numbers[r] >= target:
+            if numbers[l] + numbers[r] < target:
+                l += 1
+            elif numbers[l] + numbers[r] > target:
                 r -= 1
-            if numbers[l] + numbers[r] == target:
+            else:
                 return l + 1, r + 1
-
-        print(r)
