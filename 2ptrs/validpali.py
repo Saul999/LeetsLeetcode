@@ -9,11 +9,30 @@ class Solution(object):
         s = s.replace(",", "")
         s = s.replace(":", "")
         s = s.replace(".", "")
+        s = s.replace("@", "")
+        s = s.replace("#", "")
+        s = s.replace("_", "")
+        s = s.replace("[", "")
+        s = s.replace("]", "")
+        s = s.replace('"', "")
+        s = s.replace("{", "")
+        s = s.replace("}", "")
+        s = s.replace("'", "")
+        s = s.replace("-", "")
+        s = s.replace("?", "")
+        s = s.replace(";", "")
+        s = s.replace("!", "")
+        s = s.replace("$", "")
+        s = s.replace("(", "")
+        s = s.replace(")", "")
+        s = s.replace("`", "")
 
         print(s)
         if len(s) == 0 or len(s) == 1:
             return True
-
+        elif len(s) == 2:
+            if s[0] == s[1]:
+                return True
         leftptr = 0
         print(leftptr)
         rightptr = len(s) - 1
