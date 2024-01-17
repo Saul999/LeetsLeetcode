@@ -11,23 +11,19 @@ class Solution(object):
 
         l, r = 0, len(nums) - 1
         while l <= r:
-            mid = (l + r) / 2
+            mid = l + ((r - l) // 2)
             if nums[mid] < target:
                 print("first")
                 print("left " + str(l))
                 print("mid " + str(mid))
                 print("right " + str(r))
-                l = mid
+                l = mid + 1
             elif nums[mid] > target:
                 print("second")
                 print("left " + str(l))
                 print("mid " + str(mid))
                 print("right " + str(r))
-                r = mid
-            elif nums[mid] == target:
-                print("mid 2: " + str(mid))
-                return mid
+                r = mid - 1
             else:
-                return -1
-
+                return mid
         return -1
