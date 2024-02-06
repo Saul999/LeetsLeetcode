@@ -17,6 +17,6 @@ class Solution(object):
                 colCounter -= 1
             elif rows[rowCounter] > target:
                 rowCounter -= 1
-            elif row[rowCounter] == target:
+            elif rows[rowCounter] == target:
                 finalval = target
                 return rows, cols
