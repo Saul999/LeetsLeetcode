@@ -5,6 +5,9 @@ class Solution(object):
         :type str2: str
         :rtype: str
         """
+        
+        # 56/123 tests cases need to fix the string sizes instead of stopping the 
+        # ex length AB should be ABAB if the str1 is ABABABAB and str2 is ABAB
         newstring = ""
         start = str1[0]
         for i in str1: 
