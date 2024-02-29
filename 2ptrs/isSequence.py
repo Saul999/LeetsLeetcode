@@ -21,16 +21,12 @@ class Solution(object):
             return True
         sptr = 0
         tptr = 0
-        count = 0
         for i in range(len(t)):
             if s[sptr] == t[tptr]:
                 sptr += 1
-                count += 1
-                print(count)
-            if count == len(s):
+            if sptr == len(s):
                 return True
             tptr += 1
         
-        print(count)
         return False        
 
