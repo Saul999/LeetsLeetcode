@@ -13,13 +13,12 @@ class Solution(object):
 
 
         for i in range(n):
-            pre[i] = sumPre
+            final[i] *= sumPre
             sumPre = sumPre * nums[i]
 
-        for i in reversed(range(n)):
-            post[i]= sumPost
+        for i in range(len(nums)-1, -1, -1):
+            final[i] *= sumPost
             sumPost = sumPost * nums[i]
-            final[i] = pre[i] * post[i]
 
         # for i in range(n):
         #     final[i]= pre[i] * post[i]
