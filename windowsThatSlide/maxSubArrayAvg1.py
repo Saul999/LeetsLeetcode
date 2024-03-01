@@ -17,10 +17,9 @@ class Solution(object):
         for i in range(k, len(nums)):
             windowSum -= nums[lptr]
             windowSum += nums[i]
-            if float(windowSum) / float(k) > maxAvg:
-                maxAvg = float(windowSum)/float(k)
+            maxAvg = max(maxAvg, float(windowSum)/ float(k))
             lptr += 1
             
             
 
-        return float(maxAvg)
+        return maxAvg
