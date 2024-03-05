@@ -4,24 +4,21 @@ class Solution(object):
         :type asteroids: List[int]
         :rtype: List[int]
         """
-        stack = [0] * len(asteroids)
-        absVal1 = 0
-        absVal2 = 0
-        print(asteroids[-2])
-        for i in range(len(asteroids)):
-            if len(asteroids) < 2:
-                return asteroids
-            if asteroids[-1] < 0:
-                if asteroids[-2] > 0:
-                    if abs(asteroids[-1]) > abs(asteroids[-2]):
-                        stack.append(asteroids.pop())
-                    else:
-                        asteroids.pop()
-                        stack.append(asteroids.pop())
+        stack = []
 
-            elif asteroids[-1] > 0 and asteroids[-2] > 0:
-                stack.append(asteroids.pop())
-                stack.append(asteroids.pop())
-            
-                    
+        for a in asteroids:
+            if a > 0:
+                stack.append(a)
+            else:
+                while stack and stack[-1] > 0:
+                    if stack[-1] == abs(a):
+                        stack.pop()
+                        break
+                    elif stack[-1] < abs(a):
+                        stack.pop()
+                    else:
+                        break
+                else:
+                    stack.append(a)
+
         return stack
