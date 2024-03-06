@@ -10,21 +10,36 @@ class Solution(object):
             stack.append(letter)
         alphastring = ""
         final = ""
+        contString = ""
+        
+        count = 0
         while stack:
-            cur = stack.pop()
-            print(cur)
+            cur = stack[-1]
             if cur.isalpha():
                 alphastring = cur + alphastring
-                print("alphastring : " + alphastring)
-                continue
-                
+                print("alphastring : " + alphastring)   
+             
             elif cur == "[":
                 cur = stack.pop()
-                final = alphastring * int(cur) + final
-                print("final: " + final)
-                alphastring = ""
+                count -= 1      
+                if count > 0:    
+                    cur = stack.pop()
+                    contString = alphastring + contString
+                    print(contString)
+                    alphastring = ""
+                if count == 0:
+                    cur = stack.pop()
+                    final = (alphastring * int(cur)) + contString
+            elif cur == "]":
+                count+= 1
+                cur= stack.pop()
+            if stack:
+                cur = stack.pop()
+            else: 
+                break
 
-                continue
+
+
 
                 
 
