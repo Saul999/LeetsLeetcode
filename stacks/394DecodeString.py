@@ -1,47 +1,24 @@
 class Solution(object):
     def decodeString(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
         stack = []
+        current_num = 0
+        current_str = ""
 
-        for letter in s:
-            stack.append(letter)
-        alphastring = ""
-        final = ""
-        contString = ""
-        
-        count = 0
-        while stack:
-            cur = stack[-1]
-            if cur.isalpha():
-                alphastring = cur + alphastring
-                print("alphastring : " + alphastring)   
-             
-            elif cur == "[":
-                cur = stack.pop()
-                count -= 1      
-                if count > 0:    
-                    cur = stack.pop()
-                    contString = alphastring + contString
-                    print(contString)
-                    alphastring = ""
-                if count == 0:
-                    cur = stack.pop()
-                    final = (alphastring * int(cur)) + contString
-            elif cur == "]":
-                count+= 1
-                cur= stack.pop()
-            if stack:
-                cur = stack.pop()
-            else: 
-                break
+        for char in s:
+            if char.isdigit():
+                current_num = current_num * 10 + int(char)
+            elif char.isalpha():
+                current_str += char
+            elif char == "[":
+                stack.append((current_str, current_num))
+                print("stack: " + str(stack))
+                current_str = ""
+                current_num = 0
+            elif char == "]":
+                prev_str, prev_num = stack.pop()
+                print("prevstr: " + prev_str)
+                print("prevnum: " + str(prev_num))
+                current_str = prev_str + current_str * prev_num
+                print("cur string: " + current_str)
 
-
-
-
-                
-
-        return final
-            
+        return current_str
