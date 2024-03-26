@@ -17,11 +17,23 @@ b.left = d
 b.right = e
 c.right = f
 
+#Tree Example
+    #     a
+    #    / \
+    #   b   c 
+    #  / \    \
+    # d   e    f  
+
+
 
 def dfs(root):
+    if root == None:
+        return []
     stack = [root]
+    res = []
     while stack:
         cur = stack.pop()
+        res.append(cur)
         print(cur.val)
         if cur.right:
             stack.append(cur.right)
@@ -29,7 +41,15 @@ def dfs(root):
             stack.append(cur.left)
         
 
-dfs(a)
+def dfs_recursion(root):
+    if root:
+        dfs(root.left)
+        print(root.val)
+        dfs(root.right)
+    
+        
+
+dfs_recursion(a)
 
 
 
