@@ -48,9 +48,7 @@ class Solution(object):
         :type grid: List[List[str]]
         :rtype: int
         """
-        if not grid:
-            return 0
-      
+
         if not grid:
             return 0
 
