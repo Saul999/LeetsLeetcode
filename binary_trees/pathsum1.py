@@ -13,19 +13,19 @@ class Solution(object):
         """
         def dfs(root, value):
             if not root:
-                return None
+                return False
 
             value += root.val
             
-            if value == targetSum:
-                return True
-            
             if not root.left and not root.right:
-                value -= root.val
-            dfs(root.left, value)
-            dfs(root.right, value)
+                return value == targetSum
+            
+            left = dfs(root.left, value)
+            right = dfs(root.right, value)
 
-            return False
+            return left or right
             
         
         return dfs(root, 0)
+
+      
