@@ -22,18 +22,19 @@ class Solution(object):
                     node = queue.pop(0)
                     if node:
                         level_sum += node.val
-                        queue.append(node.left)
-                        queue.append(node.right)
+                        if node.left:
+                            queue.append(node.left)
+                        if node.right:
+                            queue.append(node.right)
                 if level_sum > max_level_sum:
                     max_level_sum = level_sum
                     max_level = currentlvl
                             
                 currentlvl += 1
 
-
             return max_level
 
-            
+        
         
         return bfs(root)
             
